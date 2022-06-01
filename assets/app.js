@@ -5,8 +5,9 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-// any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
+import "./styles/app.css";
+import "./scripts/script";
 
-// start the Stimulus application
-import './bootstrap';
+import $ from "jquery";
+require("foundation-sites");
+$(document).foundation();

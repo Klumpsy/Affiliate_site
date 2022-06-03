@@ -8,13 +8,22 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
     </head>
     <body>
-    {% include '_blocks/_navigation.html.twig' %}
-        {% block body %}{% endblock %}
+            <div class="grid-container" >
+                <div class="grid-y" style="min-height: 100vh;">
+                    <div class="cell shrink">
+                        {% include "_blocks/_navigation.html.twig" %}
+                    </div>
+                    <div class="cell full">
+                        {% block body %}{% endblock %}
+                    </div>
+                    <div class="cell shrink">
+                    </div>
+                </div>
+            </div>>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
     </body>
 </html>

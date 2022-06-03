@@ -5,7 +5,7 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-import "./styles/app.css";
+import "./styles/app.scss";
 import "./scripts/script";
 
 import $ from "jquery";

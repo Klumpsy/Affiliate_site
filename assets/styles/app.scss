@@ -12,16 +12,22 @@ $topbar-responsive-bg: #2c3840;
 $topbar-responsive-animation-type: fade-in; // or use slide-down or none
 
 .topbar-responsive {
-  background: $topbar-responsive-bg;
+  background-color: $topbar-responsive-bg;
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: bottom;
   padding: 1rem 1.5rem;
 
   .topbar-responsive-logo {
-    color: $white;
-    vertical-align: middle;
+    max-width: 100px;
+    img {
+      width: 100px;
+    }
   }
 
   .menu {
-    background: $topbar-responsive-bg;
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
 
     li:last-of-type {
       margin-right: 0;
@@ -114,4 +120,25 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
     }
   }
 }
+
+//Hero section
+
+$hero-height: 60vh;
+
+.hero-section {
+  background: url('https://www.pexels.com/nl-nl/foto/persoon-golden-retriever-aan-te-raken-1870301') 50% no-repeat;
+  background-size: cover;
+  height: $hero-height;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .hero-section-text {
+    color: $white;
+    text-shadow: 1px 1px 2px $black;
+  }
+}
+
+
 

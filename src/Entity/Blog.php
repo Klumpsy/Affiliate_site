@@ -16,11 +16,14 @@ class Blog
     #[ORM\Column(type: 'string', length: 255)]
     private $title;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 25000)]
     private $content;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $author;
+
+    #[ORM\Column(type: 'date')]
+    private $date;
 
     public function getId(): ?int
     {
@@ -59,6 +62,18 @@ class Blog
     public function setAuthor(string $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

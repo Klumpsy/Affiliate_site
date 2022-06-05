@@ -11,7 +11,10 @@
                 <li><a href="{{ path('app_home') }}">Home</a></li>
                 <li><a href="#">Informatie</a></li>
                 <li><a href="#">Producten</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="{{ path('app_blogs') }}">Blog</a></li>
+                {% if is_granted('ROLE_USER')%}
+                    <li><a href="{{ path('admin') }}" class="button warning">Admin</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

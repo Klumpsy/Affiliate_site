@@ -126,7 +126,7 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
 $hero-height: 60vh;
 
 .hero-section {
-  background: url('https://www.pexels.com/nl-nl/foto/persoon-golden-retriever-aan-te-raken-1870301') 50% no-repeat;
+  background: url('https://www.pexels.com/photo/brown-short-coated-puppies-lying-on-brown-textile-5853404/') 50% no-repeat;
   background-size: cover;
   height: $hero-height;
   text-align: center;
@@ -139,6 +139,172 @@ $hero-height: 60vh;
     text-shadow: 1px 1px 2px $black;
   }
 }
+
+//Blogs
+
+.article-row-section {
+  @include flex-grid-row(null, $global-width, 12);
+  justify-content: center;
+}
+
+.article-row-section-inner {
+  @include flex-grid-column(12);
+
+  @include breakpoint(medium) {
+    @include flex-grid-column(10);
+  }
+}
+
+.article-row-section-header {
+  padding: 1.5rem 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.article-row {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $light-gray;
+  padding: 1.5rem 0;
+
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+}
+
+.article-row-img img {
+  width: 100%;
+
+  @include breakpoint(medium) {
+    max-width: none;
+    width: auto;
+  }
+}
+
+.article-row-content {
+  padding: 1.5rem 0 0;
+  color: $body-font-color;
+
+  @include breakpoint(medium) {
+    padding: 0 0 0 1.5rem;
+  }
+}
+
+.article-row-content-header {
+  font-size: 1.5rem;
+}
+
+.article-row-content-description {
+  font-size: 1.25rem;
+}
+
+.article-row-content-author,
+.article-row-content-time {
+  font-size: 0.875rem;
+  margin-bottom: 0;
+  color: $dark-gray;
+}
+
+.article-row-reversed {
+  .article-row-content {
+    order: 2;
+    padding: 0 1.5rem 0 0;
+  }
+
+  .article-row-img {
+    order: 1;
+    padding: 0 0 1.5rem 0;
+  }
+
+  @include breakpoint(medium) {
+    .article-row-content {
+      order: 1;
+    }
+
+    .article-row-img {
+      order: 2;
+    }
+  }
+}
+
+// Single Blog
+
+$large-article-header-bg: url('https://unsplash.it/1024/500/?blur');
+$large-article-header-color: $white;
+$large-article-header-height: rem-calc(500);
+
+.large-article-header {
+  background: $large-article-header-bg no-repeat center;
+  background-size: cover;
+  height: $large-article-header-height;
+  position: relative;
+
+  @include breakpoint(small only) {
+    height: ($large-article-header-height / 1.5);
+  }
+}
+
+.large-article-header-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: rem-calc(50);
+  left: 0;
+  right: 0;
+
+  @include breakpoint(small only) {
+    bottom: rem-calc(20);
+  }
+
+  .center-container {
+    width: 50%;
+    margin: 0 auto;
+
+    @include breakpoint(small only) {
+      width: 100%;
+      padding: 0 rem-calc(20);
+    }
+  }
+
+  .article-date {
+    color: $large-article-header-color;
+  }
+  .article-title {
+    h1 {
+      line-height: rem-calc(50);
+      color: $large-article-header-color;
+      font-weight: 600;
+
+      @include breakpoint(small only) {
+        line-height: rem-calc(30);
+      }
+    }
+  }
+  .article-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      color: $large-article-header-color;
+    }
+  }
+  .article-author {
+    display: flex;
+    align-items: center;
+    margin: $global-margin 0;
+    img {
+      border-radius: rem-calc(50);
+    }
+    a {
+      margin-left: $global-margin;
+    }
+  }
+}
+
+
+
+
 
 
 

@@ -20,15 +20,16 @@ class BlogCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield Field::new('title');
-        yield TextareaField::new('content');
-        yield DateField::new('date');
-        yield AssociationField::new('author');
-        yield ImageField::new('articleImageSmall')
+        yield Field::new('title', 'Titel');
+        yield TextareaField::new('content')
+            ->hideOnIndex();
+        yield DateField::new('date', 'Datum');
+        yield AssociationField::new('author', 'Auteur');
+        yield ImageField::new('articleImageSmall', 'Kleine image (preview)')
             ->setBasePath('uploads/blogImages')
             ->setUploadDir('public/uploads/blogImages')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
-        yield ImageField::new('articleImageBig')
+        yield ImageField::new('articleImageBig', 'Grote image (artikel)')
             ->setBasePath('uploads/blogImages')
             ->setUploadDir('public/uploads/blogImages')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')

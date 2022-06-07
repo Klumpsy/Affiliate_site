@@ -4,6 +4,7 @@
 
 body {
   background-color: lightgray;
+  height: 100%;
 }
 
 //Navigation
@@ -151,6 +152,10 @@ $hero-height: 60vh;
   @include flex-grid-column(12);
 
   @include breakpoint(medium) {
+    @include flex-grid-column(12);
+  }
+
+  @include breakpoint(small) {
     @include flex-grid-column(10);
   }
 }

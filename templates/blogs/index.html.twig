@@ -20,7 +20,7 @@
                                 <img class="blog_post_user_avatar" src="{{ asset('uploads/avatars/' ~ blog.author.avatar ) }}" alt="{{ blog.author }}" />
                                 <div >
                                     <p class="article-row-content-author">{{ blog.author }}</p>
-                                    <time class="article-row-content-time" datetime="2008-02-14 20:00">July 14th 2021</time>
+                                    <time class="article-row-content-time" datetime="2008-02-14 20:00">{{ blog.date|date("d/m/Y")}}</time>
                                 </div>
                             </div>
                         </div>

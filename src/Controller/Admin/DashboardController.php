@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Blog;
+use App\Entity\Product;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -39,6 +40,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Blog', 'fas fa-question-circle', Blog::class);
+        yield MenuItem::linkToCrud('Producten', 'fas fa-dollar', Product::class);
         yield MenuItem::LinkToCrud('User', 'fas fa-user', User::class);
         yield MenuItem::linkToUrl('Homepage', 'fas fa-home', $this->generateUrl('app_home'));
     }

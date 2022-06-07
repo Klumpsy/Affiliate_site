@@ -3,7 +3,7 @@
 {% block body %}
     <div class="row expanded collapse">
         <div class="column">
-            <div class="large-article-header">
+            <div class="large-article-header" style="background-image: url('{{ asset('uploads/blogImages/' ~ blog.articleImageBig )}}')">
                 <div class="large-article-header-content">
                     <div class="center-container">
                         <div class="article-date">
@@ -13,10 +13,6 @@
                             <h1>{{ blog.title }}</h1>
                         </div>
                         <div class="article-details">
-                            <div class="article-author">
-                                <img src="https://unsplash.it/50/50?image=1005" alt="" />
-                                <a href="#">{{ blog.author }}</a>
-                            </div>
                         </div>
                     </div>
                 </div>

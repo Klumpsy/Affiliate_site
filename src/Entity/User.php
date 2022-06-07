@@ -179,6 +179,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->avatar;
     }
 
+    public function getAvatarUrl(): ?string
+    {
+        if (!$this->avatar) {
+           return null;
+        }
+
+        if (strpos($this->avatar, '/') !== false)
+        {
+            return $this->avatar;
+        }
+
+        return sprintf('/uploads/avatars/%s', $this->avatar);
+    }
+
     public function setAvatar(?string $avatar): self
     {
         $this->avatar = $avatar;

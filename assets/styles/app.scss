@@ -174,9 +174,10 @@ $hero-height: 60vh;
 
 .article-row-img img {
   width: 100%;
+  max-width: 400px;
 
   @include breakpoint(medium) {
-    max-width: none;
+    max-width: 200px;
     width: auto;
   }
 }
@@ -184,6 +185,12 @@ $hero-height: 60vh;
 .article-row-content {
   padding: 1.5rem 0 0;
   color: $body-font-color;
+
+  img {
+    max-width: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
 
   @include breakpoint(medium) {
     padding: 0 0 0 1.5rem;
@@ -229,12 +236,11 @@ $hero-height: 60vh;
 
 // Single Blog
 
-$large-article-header-bg: url('https://unsplash.it/1024/500/?blur');
 $large-article-header-color: $white;
 $large-article-header-height: rem-calc(500);
 
 .large-article-header {
-  background: $large-article-header-bg no-repeat center;
+  background: no-repeat center;
   background-size: cover;
   height: $large-article-header-height;
   position: relative;

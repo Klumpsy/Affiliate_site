@@ -10,15 +10,19 @@
                 <a href="{{ path('app_single_blog',{id: blog.id}) }}">
                     <article class="article-row">
                         <div class="article-row-img">
-                            <img src="https://placehold.it/200" alt="picture of a whale eating a donkey" />
+                            <img src="{{ asset('uploads/blogImages/' ~ blog.articleImageSmall ) }}" alt="{{ blog.author }}" />
                         </div>
                         <div class="article-row-content">
                             <h2 class="article-row-content-header">{{ blog.title }}</h2>
 
                             <p class="article-row-content-description">{{ blog.content }}</p>
-
-                            <p class="article-row-content-author">{{ blog.author }}</p>
-                            <time class="article-row-content-time" datetime="2008-02-14 20:00">July 14th 2021</time>
+                            <div class="grid-x justify-content-center align-content-center">
+                                <img class="blog_post_user_avatar" src="{{ asset('uploads/avatars/' ~ blog.author.avatar ) }}" alt="{{ blog.author }}" />
+                                <div >
+                                    <p class="article-row-content-author">{{ blog.author }}</p>
+                                    <time class="article-row-content-time" datetime="2008-02-14 20:00">July 14th 2021</time>
+                                </div>
+                            </div>
                         </div>
                     </article>
                 </a>

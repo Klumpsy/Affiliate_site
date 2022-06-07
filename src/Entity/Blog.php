@@ -26,6 +26,12 @@ class Blog
     #[ORM\JoinColumn(nullable: false)]
     private $author;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $articleImageSmall;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $articleImageBig;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -81,5 +87,57 @@ class Blog
         $this->author = $author;
 
         return $this;
+    }
+
+    public function getArticleImageSmall(): ?string
+    {
+        return $this->articleImageSmall;
+    }
+
+    public function getArticleImageSmallUrl(): ?string
+    {
+        if (!$this->avatar) {
+            return null;
+        }
+
+        if (strpos($this->articleImageSmall, '/') !== false)
+        {
+            return $this->articleImageSmall;
+        }
+
+        return sprintf('/uploads/blogImages/%s', $this->articleImageSmall);
+    }
+
+    public function setArticleImageSmall(?string $articleImageSmall): self
+    {
+        $this->articleImageSmall = $articleImageSmall;
+
+        return $this;
+    }
+
+    public function getArticleImageBig(): ?string
+    {
+        return $this->articleImageBig;
+    }
+
+    public function setArticleImageBig(string $articleImageBig): self
+    {
+        $this->articleImageBig = $articleImageBig;
+
+        return $this;
+    }
+
+    public function getArticleImageBigUrl(): ?string
+    {
+        if (!$this->articleImageBig) {
+            return null;
+        }
+
+        if (strpos($this->articleImageBig, '/') !== false)
+        {
+            return $this->articleImageBig;
+        }
+
+        return sprintf('/uploads/blogImages/%s', $this->articleImageBig);
     }
 }

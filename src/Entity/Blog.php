@@ -19,15 +19,20 @@ class Blog
     #[ORM\Column(type: 'string', length: 25000)]
     private $content;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $author;
-
     #[ORM\Column(type: 'date')]
     private $date;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'blogs')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $author;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function __toString() {
+        return $this->author;
     }
 
     public function getTitle(): ?string
@@ -54,18 +59,6 @@ class Blog
         return $this;
     }
 
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author): self
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
@@ -74,6 +67,18 @@ class Blog
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

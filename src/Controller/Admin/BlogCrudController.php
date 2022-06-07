@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Blog;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -21,7 +22,6 @@ class BlogCrudController extends AbstractCrudController
         yield Field::new('title');
         yield TextareaField::new('content');
         yield DateField::new('date');
-        yield Field::new('author');
+        yield AssociationField::new('author');
     }
-
 }

@@ -42,17 +42,15 @@ class BlogRepository extends ServiceEntityRepository
 //    /**
 //     * @return Blog[] Returns an array of Blog objects
 //     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('b.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findLastThreeBlogs(): array
+    {
+        return $this->createQueryBuilder('b')
+            ->orderBy('b.date', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?Blog
 //    {

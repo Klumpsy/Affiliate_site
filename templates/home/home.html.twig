@@ -1,10 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="hero-section">
-        <div class="hero-section-text">
-            <h1>Header</h1>
-            <h5>subtitle about anything you like</h5>
-        </div>
+    <h2>Laatste blogs</h2>
+    <div class="grid-x grid-padding-x">
+        {% for blog in blogs %}
+            <div class="cell large-4 small-12">
+                <div class="responsive-blog-post">
+                    <div class="individual-post">
+                        <h4>{{ blog.title }}</h4>
+                        <p class="date">{{ blog.date|date('Y,M,D') }}</p>
+                        <img class= 'home-blogs-image' src="{{ asset('uploads/blogImages/' ~ blog.articleImageSmall ) }}" alt="{{ blog.author }}" />
+                        <p>{{ blog.content|length > 50 ? blog.content|slice(0,150) ~ '...' : blog.content }}</p>
+                        <a class="button" href="{{ path('app_single_blog',{id: blog.id}) }}">Lees verder</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
     </div>
 {% endblock %}
+

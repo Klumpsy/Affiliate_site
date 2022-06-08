@@ -2,6 +2,8 @@
 @import "../../node_modules/foundation-sites/scss/global";
 @include foundation-everything();
 
+@import '../../node_modules/font-awesome/scss/font-awesome';
+
 body {
   background-color: lightgray;
   height: 100%;
@@ -122,22 +124,54 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
   }
 }
 
-//Hero section
+//Latest Blogs slider
 
-$hero-height: 60vh;
+$responsive-blog-post-highlight: $primary-color;
+$responsive-blog-post-vert-seperate: 4rem;
 
-.hero-section {
-  background: url('https://www.pexels.com/photo/brown-short-coated-puppies-lying-on-brown-textile-5853404/') 50% no-repeat;
-  background-size: cover;
-  height: $hero-height;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.responsive-blog-post {
+  margin-bottom: $responsive-blog-post-vert-seperate;
 
-  .hero-section-text {
-    color: $white;
-    text-shadow: 1px 1px 2px $black;
+  p {
+    color: $dark-gray;
+  }
+
+  .button {
+    padding: 0.85rem 3rem;
+    background: $responsive-blog-post-highlight;
+
+    &:hover {
+      background-color: darken($responsive-blog-post-highlight, 5%);
+      transition: color 0.3s ease-in;
+    }
+  }
+
+  .individual-post {
+    margin-bottom: $responsive-blog-post-vert-seperate;
+  }
+
+  h4 {
+    margin-bottom: 0;
+
+    &:hover {
+      text-decoration: underline;
+      transition: color 0.3s ease-in;
+    }
+
+    @media screen and (max-width: 39.9375em) {
+      font-size: 1.5rem;
+    }
+  }
+
+  img {
+    margin-bottom: 1.5rem;
+    max-height: 250px;
+    min-height: 250px;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    color: $dark-gray;
   }
 }
 

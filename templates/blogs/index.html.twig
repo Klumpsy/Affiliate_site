@@ -15,7 +15,7 @@
                         <div class="article-row-content">
                             <h2 class="article-row-content-header">{{ blog.title }}</h2>
 
-                            <p class="article-row-content-description">{{ blog.content }}</p>
+                            <p class="article-row-content-description">{{ blog.content|length > 50 ? blog.content|slice(0,150) ~ '... lees verder' : blog.content }}</p>
                             <div class="grid-x justify-content-center align-content-center">
                                 <img class="blog_post_user_avatar" src="{{ asset('uploads/avatars/' ~ blog.author.avatar ) }}" alt="{{ blog.author }}" />
                                 <div >

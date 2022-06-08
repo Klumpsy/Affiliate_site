@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
     <div class="row expanded collapse">
+        <a href="{{ path('app_blogs') }}" class="back-button"><i class="fa fa-arrow-circle-left fa-3x fa-color-black"></i></a>
         <div class="column">
             <div class="large-article-header" style="background-image: url('{{ asset('uploads/blogImages/' ~ blog.articleImageBig )}}')">
                 <div class="large-article-header-content">

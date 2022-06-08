@@ -6,6 +6,7 @@
  */
 
 import "./styles/app.scss";
+import "./styles/fa-icon-styles.scss"
 import "./scripts/script";
 
 import $ from "jquery";

@@ -3,6 +3,8 @@
 @include foundation-everything();
 
 @import '../../node_modules/font-awesome/scss/font-awesome';
+@import './_colors.scss';
+@import './foundation_overwrites.scss';
 
 body {
   background-color: lightgray;
@@ -11,7 +13,7 @@ body {
 
 //Navigation
 
-$topbar-responsive-bg: #2c3840;
+$topbar-responsive-bg: $mainDarkColor;
 $topbar-responsive-animation-type: fade-in; // or use slide-down or none
 
 .topbar-responsive {
@@ -31,7 +33,6 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
   .menu {
     background: rgba(0,0,0,0.6);
     padding: 20px;
-
     li:last-of-type {
       margin-right: 0;
     }
@@ -124,58 +125,104 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
   }
 }
 
-//Latest Blogs slider
+//Homepage
 
-$responsive-blog-post-highlight: $primary-color;
-$responsive-blog-post-vert-seperate: 4rem;
+.home-page-action-container {
+  background-color: $mainLightBlueColor;
+  padding: 10px 0;
+  border-top: 1px solid $medium-gray;
+  border-bottom: 1px solid $medium-gray;
 
-.responsive-blog-post {
-  margin-bottom: $responsive-blog-post-vert-seperate;
-
+  .custom-home-page-button {
+    background-color: $mainDarkColor;
+    padding: 20px 20px;
+    border-radius: 25px;
+    color: white;
+    &:hover {
+      cursor: pointer;
+      background-color: lighten($mainDarkColor, 15%);
+      transition: .5s ease-in-out;
+    }
+  }
+  .main-action-block-image {
+    display: block;
+    margin: auto;
+  }
   p {
-    color: $dark-gray;
-  }
-
-  .button {
-    padding: 0.85rem 3rem;
-    background: $responsive-blog-post-highlight;
-
-    &:hover {
-      background-color: darken($responsive-blog-post-highlight, 5%);
-      transition: color 0.3s ease-in;
-    }
-  }
-
-  .individual-post {
-    margin-bottom: $responsive-blog-post-vert-seperate;
-  }
-
-  h4 {
-    margin-bottom: 0;
-
-    &:hover {
-      text-decoration: underline;
-      transition: color 0.3s ease-in;
-    }
-
-    @media screen and (max-width: 39.9375em) {
-      font-size: 1.5rem;
-    }
-  }
-
-  img {
-    margin-bottom: 1.5rem;
-    max-height: 250px;
-    min-height: 250px;
-  }
-
-  .date {
-    font-size: 0.8rem;
-    color: $dark-gray;
+    margin-bottom: 50px;
   }
 }
 
-//Blogs
+$work-feature-image-offset-padding: 10px 0;
+
+.work-feature-block {
+  padding: 10px 0;
+  border-top: 1px solid $medium-gray;
+  border-bottom: 1px solid $medium-gray;
+  background-color: $mainYellowColor;
+
+  .work-feature-block-image {
+    display: block;
+    margin: auto;
+    padding: $work-feature-image-offset-padding;
+  }
+}
+
+//Homepage Latest Blogs Section
+
+$responsive-blog-post-highlight: $mainDarkColor;
+$responsive-blog-post-vert-seperate: 4rem;
+
+.blog-post-container {
+  background-color: $mainLightBlueColor;
+  padding: 20px;
+  .responsive-blog-post {
+    margin-bottom: $responsive-blog-post-vert-seperate;
+    p {
+      color: $dark-gray;
+    }
+
+    .button {
+      padding: 0.85rem 3rem;
+      background: $responsive-blog-post-highlight;
+
+      &:hover {
+        background-color: darken($responsive-blog-post-highlight, 5%);
+        transition: color 0.3s ease-in;
+      }
+    }
+
+    .individual-post {
+      margin-bottom: $responsive-blog-post-vert-seperate;
+    }
+
+    h4 {
+      margin-bottom: 0;
+
+      &:hover {
+        text-decoration: underline;
+        transition: color 0.3s ease-in;
+      }
+
+      @media screen and (max-width: 39.9375em) {
+        font-size: 1.5rem;
+      }
+    }
+
+    img {
+      margin-bottom: 1.5rem;
+      max-height: 250px;
+      min-height: 250px;
+    }
+
+    .date {
+      font-size: 0.8rem;
+      color: $dark-gray;
+    }
+  }
+}
+
+//Blogs Page
 
 .article-row-section {
   @include flex-grid-row(null, $global-width, 12);

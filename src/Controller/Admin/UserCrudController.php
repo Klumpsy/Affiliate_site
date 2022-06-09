@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AvatarField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -40,6 +41,9 @@ class UserCrudController extends AbstractCrudController
             yield EmailField::new('email');
             yield BooleanField::new('isVerified')
                 ->renderAsSwitch(false);
+            yield AssociationField::new('blogs')
+                ->setFormTypeOption('choice_label', 'slug')
+                ->setFormTypeOption('by_reference', false);
             $roles = ['ROLE_USER', 'ROLE_ADMIN'];
             yield ChoiceField::new('roles')
                 ->setChoices(array_combine($roles, $roles))

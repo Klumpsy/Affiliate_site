@@ -1,10 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2>Laatste blogs</h2>
-    <div class="grid-x grid-padding-x">
+    <div class="grid-x grid-padding-x grid-padding-y home-page-action-container align-middle">
+        <div class="cell large-6 medium-12">
+            <h2 class="work-feature-block-header">Verwen jij jouw hond ook?</h2>
+            <p>Zorg dat jouw hond ook maximaal geluk ervaard!</p>
+            <a class="custom-home-page-button">Lees verder waar jouw hond van droomt</a>
+        </div>
+        <div class="cell large-6 medium-12">
+            <img class='main-action-block-image' src="{{ asset('build/images/happy_dog_image_home.jpg') }}" alt='happy dog'/>
+        </div>
+    </div>
+    <div class="work-feature-block grid-x grid-padding-x grid-padding-y">
+        <div class="cell large-6 medium-12">
+            <img class="work-feature-block-image" src="{{ asset('build/images/front_image_home.jpg') }}"/>
+        </div>
+        <div class="cell large-6 medium-12">
+            <h2 class="work-feature-block-header">Verdient jouw hond ook echt het allerbeste?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales diam ac hendrerit aliquet. Phasellus pretium libero vel molestie maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis est quam. Aenean blandit a urna laoreet tincidunt.</p>
+            <h2>Kies voor jouw hond!</h2>
+            <ul>
+                <li ><a  href="#">Hondenvoer</a></li>
+                <li><a href="#">Hondensnacks</a></li>
+                <li><a href="#">Hondenspeeltjes</a></li>
+                <li><a href="#">Hondenaccessoires</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-y grid-padding-y blog-post-container">
+        <h2>Laatste blogs</h2>
+        <div class="grid-x grid-padding-x">
         {% for blog in blogs %}
-            <div class="cell large-4 small-12">
+            <div class="cell large-4 medium-6 small-12">
                 <div class="responsive-blog-post">
                     <div class="individual-post">
                         <h4>{{ blog.title }}</h4>
@@ -16,7 +43,7 @@
                 </div>
             </div>
         {% endfor %}
-
+        </div>
     </div>
 {% endblock %}
 

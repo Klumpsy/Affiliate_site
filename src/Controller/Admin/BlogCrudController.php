@@ -25,6 +25,7 @@ class BlogCrudController extends AbstractCrudController
             ->hideOnIndex();
         yield DateField::new('date', 'Datum');
         yield AssociationField::new('author', 'Auteur');
+        yield Field::new('slug', 'Slug');
         yield ImageField::new('articleImageSmall', 'Kleine image (preview)')
             ->setBasePath('uploads/blogImages')
             ->setUploadDir('public/uploads/blogImages')

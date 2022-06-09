@@ -29,8 +29,11 @@ class Blog
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $articleImageSmall;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255,nullable: true)]
     private $articleImageBig;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $slug;
 
     public function getId(): ?int
     {
@@ -139,5 +142,17 @@ class Blog
         }
 
         return sprintf('/uploads/blogImages/%s', $this->articleImageBig);
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
     }
 }

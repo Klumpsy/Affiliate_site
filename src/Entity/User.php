@@ -35,7 +35,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Blog::class)]
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Blog::class, orphanRemoval: true)]
     private $blogs;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
